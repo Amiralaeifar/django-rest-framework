@@ -22,14 +22,24 @@ class UserRegisterSeralizer(serializers.ModelSerializer):
         }
     
     
+    def create(self, validated_data):
+        del validated_data['password2']
+        return User.objects.create_user(**validated_data)
+    
+    
+    def update(self, instance, validated_data):
+        del validated_data['password2']
+        return User.objects.filter(username=instance.username).update(**validated_data)
+    
+    
     def validate_username(self, value):
         user = User.objects.filter(username=value).exists()
         if user:
             raise serializers.ValidationError('username must be unique')
         return value
     
+    
     def validate(self, data):
         if data['password'] != data['password2']:
             raise serializers.ValidationError('password must match')
         return data
-    
