@@ -6,5 +6,6 @@ _project overview:_
 
 + __serializer__ for user registration
 + added all three validators to serializer: __field-level__, __object-level__, and __validators__ func
++ __authentication__ with _Tokens_ 
 
 
