@@ -16,21 +16,26 @@ class Home(APIView):
         return Response(data=ser_data.data)
 
 
-class QuestionView(APIView):
+class QuestionListView(APIView):
     
     def get(self, request):
         questions = Question.objects.all()
         srz_data = QuestionSerializer(instance=questions, many=True).data
         return Response(srz_data, status=status.HTTP_200_OK)
+
     
+class QuestionCreateView(APIView):
     
     def post(self, request):
-        srz_data = QuestionSerializer(data=request.data)
+        srz_data = QuestionSerializer(data=request.POST)
         if srz_data.is_valid():
             srz_data.save()
             return Response(srz_data.data, status=status.HTTP_200_OK)
-        return Response(srz_data.errors, status=status.HTTP_406_NOT_ACCEPTABLE)
+        return Response(srz_data.errors, status=status.HTTP_400_BAD_REQUEST)
     
+    
+    
+class QuestionUpdateView(APIView):
     
     def put(self, request, pk):
         question = Question.objects.get(pk=pk)
@@ -38,11 +43,13 @@ class QuestionView(APIView):
         if srz_data.is_valid():
             srz_data.save()
             return Response(srz_data.data, status=status.HTTP_200_OK)
-        return Response(srz_data.errors, status=status.HTTP_400_BAD_REQUEST)
+        return Response(srz_data.errors, status=status.HTTP_406_NOT_ACCEPTABLE)
     
+    
+class QuestionDeleteView(APIView):
     
     def delete(self, request, pk):
         question = Question.objects.get(pk=pk)
         question.delete()
-        return Response({'message': 'question has been deleted'}, status=status.HTTP_200_OK)
+        return Response({'message': 'deleted successfully'}, status=status.HTTP_200_OK)
     
