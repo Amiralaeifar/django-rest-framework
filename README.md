@@ -9,4 +9,5 @@ _project overview:_
 + __authentication__ with _Tokens_ 
 + __miscellaneous fields__ using _SerializerMethodField_
 + __Custom permissions__
++ Custom Serializer relation
 
