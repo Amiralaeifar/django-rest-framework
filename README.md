@@ -6,7 +6,7 @@ _project overview:_
 
 + __serializer__ for user registration
 + added all three validators to serializer: __field-level__, __object-level__, and __validators__ func
-+ __authentication__ with _Tokens_ 
++ __SimpleJWT__ authentication, _Json Web Token_
 + __miscellaneous fields__ using _SerializerMethodField_
 + __Custom permissions__
 + Custom Serializer relation
