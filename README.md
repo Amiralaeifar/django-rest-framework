@@ -11,5 +11,7 @@ _project overview:_
 + __Custom permissions__
 + Custom Serializer relation
 + __ViewSets__ and __SimpleRouter__ for Users 
++ __Throttling__ for Authenticated and Anonymous users
+
 
 
