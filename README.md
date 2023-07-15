@@ -10,4 +10,6 @@ _project overview:_
 + __miscellaneous fields__ using _SerializerMethodField_
 + __Custom permissions__
 + Custom Serializer relation
++ __ViewSets__ and __SimpleRouter__ for Users 
+
 
