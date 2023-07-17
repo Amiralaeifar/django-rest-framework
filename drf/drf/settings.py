@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     
     #Third-party apps
     'rest_framework',
+    'drf_spectacular',
 ]
 
 MIDDLEWARE = [
@@ -144,5 +145,12 @@ REST_FRAMEWORK = {
     'DEFAULT_THROTTLE_RATES' : {
         'anon' : '2/minutes',
         'user' : '10/minutes',
-    }
+    },
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'drf project',
+    'DESCRIPTION': 'warming up with django rest framework',
+    'VERSION': '1.0.0',
 }
