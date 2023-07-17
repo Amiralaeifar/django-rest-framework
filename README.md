@@ -12,6 +12,8 @@ _project overview:_
 + Custom Serializer relation
 + __ViewSets__ and __SimpleRouter__ for Users 
 + __Throttling__ for Authenticated and Anonymous users
++ documentation with __swagger UI__ and __drf-spectacular__
+
 
 
 
