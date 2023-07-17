@@ -13,6 +13,7 @@ _project overview:_
 + __ViewSets__ and __SimpleRouter__ for Users 
 + __Throttling__ for Authenticated and Anonymous users
 + documentation with __swagger UI__ and __drf-spectacular__
++ __JSONRendere__
 
 
 
