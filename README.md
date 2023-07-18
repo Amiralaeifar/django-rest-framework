@@ -15,6 +15,7 @@ _project overview:_
 + documentation with __swagger UI__ and __drf-spectacular__
 + __JSONRendere__
 + __Custom paginator__ from django core paginator
++ __Custom Metadata__ class for _OPTION_ Method
 
 
 
