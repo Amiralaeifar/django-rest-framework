@@ -8,6 +8,8 @@ from rest_framework import status
 from permissions import IsOwnerOrReadOnly
 from django.core.paginator import Paginator
 
+
+
 class Home(APIView):
     
     permission_classes = [AllowAny,]
@@ -28,7 +30,7 @@ class QuestionListView(APIView):
         page_size = self.request.query_params.get('limit', 2)
         paginator = Paginator(questions, page_size)
         srz_data = QuestionSerializer(instance=paginator.page(page_number), many=True).data
-        return Response(srz_data, status=status.HTTP_200_OK)
+        return Response(data=srz_data, status=status.HTTP_200_OK)
 
     
 class QuestionCreateView(APIView):

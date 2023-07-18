@@ -1,5 +1,5 @@
 from rest_framework.permissions import SAFE_METHODS, BasePermission
-
+from rest_framework.metadata import BaseMetadata
 
 class IsOwnerOrReadOnly(BasePermission):
     
@@ -13,3 +13,14 @@ class IsOwnerOrReadOnly(BasePermission):
         if request.method in SAFE_METHODS:
             return True
         return request.user == obj.user 
+    
+    
+
+class CustomMetadata(BaseMetadata):
+    
+    def determine_metadata(self, request, view):
+        return {
+            'Name': view.get_view_name(),
+            'Renderers': [renderer.media_type for renderer in view.renderer_classes],
+            'Parser': [parser.media_type for parser in view.parser_classes],
+        }
