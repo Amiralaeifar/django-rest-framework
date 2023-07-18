@@ -14,6 +14,7 @@ _project overview:_
 + __Throttling__ for Authenticated and Anonymous users
 + documentation with __swagger UI__ and __drf-spectacular__
 + __JSONRendere__
++ __Custom paginator__ from django core paginator
 
 
 

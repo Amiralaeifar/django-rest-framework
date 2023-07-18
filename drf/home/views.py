@@ -6,6 +6,7 @@ from .serializers import PersonSerializer, QuestionSerializer, AnswerSerializer
 from rest_framework.permissions import IsAuthenticated, IsAdminUser, AllowAny
 from rest_framework import status
 from permissions import IsOwnerOrReadOnly
+from django.core.paginator import Paginator
 
 class Home(APIView):
     
@@ -23,7 +24,10 @@ class QuestionListView(APIView):
     
     def get(self, request):
         questions = Question.objects.all()
-        srz_data = QuestionSerializer(instance=questions, many=True).data
+        page_number = self.request.query_params.get('page', 1)
+        page_size = self.request.query_params.get('limit', 2)
+        paginator = Paginator(questions, page_size)
+        srz_data = QuestionSerializer(instance=paginator.page(page_number), many=True).data
         return Response(srz_data, status=status.HTTP_200_OK)
 
     
